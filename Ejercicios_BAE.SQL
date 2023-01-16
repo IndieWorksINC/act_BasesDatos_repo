@@ -24,10 +24,12 @@ select nombre,SupportedLanguages from juegos
 where SupportedLanguages like '%spanish%' and SupportedLanguages not like '%french%'
 
 
+
 --6
 use steam
 select Nombre,PriceInitial, PriceFinal, sum(PriceInitial-PriceFinal) as Diferencia  from juegos
 group by Nombre,PriceInitial, PriceFinal
+
 
 
 
