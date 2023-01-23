@@ -164,3 +164,28 @@ where PriceCurrency not like 'usd'
 --25
 select nombre, metacritic from juegos
 where metacritic>0 and Metacritic<50
+
+--26
+select top 15 dlccount, nombre from juegos
+order by DLCCount desc
+
+
+--27
+select * from juegos
+where SupportedLanguages like 'english'
+
+--28
+
+select lower(nombre), upper(website) from juegos
+where genre like '%actio%' or genre like '%casual%'
+
+--29
+select top 1 metacritic, nombre, genre from juegos
+where genre like '%indie%'
+order by metacritic desc
+
+
+--30
+select top 1 metacritic, nombre, genre from juegos
+where genre like '%indie%'
+order by metacritic asc
