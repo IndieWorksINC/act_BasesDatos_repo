@@ -189,3 +189,28 @@ order by metacritic desc
 select top 1 metacritic, nombre, genre from juegos
 where genre like '%indie%'
 order by metacritic asc
+
+--31
+select top 1  *
+from juegos
+where Metacritic=(select min(Metacritic) from juegos where Metacritic> 0 )
+
+
+--32 
+select nombre, metacritic from juegos
+where metacritic > (select avg(metacritic) from juegos)
+
+
+--33
+select nombre, metacritic from juegos
+where ReleaseDate='2008' and metacritic=(select max(Metacritic) from juegos where ReleaseDate='2008')
+
+--34
+select * from juegos
+where PriceInitial>(select avg(priceinitial)  from juegos)
+
+
+--35
+select * 
+from juegos
+where PlatformLinux = 'True' and AchievementCount = (select top 1 AchievementCount from juegos order by AchievementCount desc);
